@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './index.css';
+import Piano from './instruments/piano/piano';
+import Makeymakey from './instruments/makeymakey/makeymakey';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [instrument, setInstrument] = useState(null);
+
+  if (!instrument) {
+    return (
+      <div className="menu">
+        <button onClick={() => setInstrument('piano')} className="menu-button">🎹 Piano</button>
+        <button onClick={() => setInstrument('makey')} className="menu-button">🕹️ MakeyMakey</button>
+      </div>
+    );
+  }
+
+  return instrument === 'piano' ? <Piano /> : <Makeymakey />;
 }
 
 export default App;

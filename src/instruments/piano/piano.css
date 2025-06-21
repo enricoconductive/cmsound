@@ -1,0 +1,96 @@
+.piano-container {
+  width: 50vw;
+  max-width: 700px;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background: #e0e0e0;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #fff;
+  user-select: none;
+}
+
+.white-key {
+  flex: 1;
+  margin: 0 6px;
+  background: #e0e0e0;
+  border-radius: 15px;
+  box-shadow: 6px 6px 10px #bebebe, -6px -6px 10px #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  color: #555;
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.white-key:nth-child(1) { background: #f8d7da; } /* C – soft red */
+.white-key:nth-child(2) { background: #fff9c4; } /* D – pale yellow */
+.white-key:nth-child(3) { background: #d0f0c0; } /* E – mint green */
+.white-key:nth-child(4) { background: #d6d6d6; } /* F – gentle grey */
+.white-key:nth-child(5) { background: #fdfdfd; } /* G – soft white */
+.white-key:nth-child(6) { background: #e1bee7; } /* A – pastel purple */
+
+.white-key.active {
+  box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #fff;
+  transform: translateY(4px);
+  color: #333;
+}
+
+.octave-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  background: #e0e0e0;
+  box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+  z-index: 10;
+}
+
+.octave-button {
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #555;
+  border: none;
+  border-radius: 50%;
+  background: #e0e0e0;
+  box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.octave-button:hover {
+  color: #333;
+  box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+}
+
+.octave-button:active {
+  box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff;
+  transform: translateY(2px);
+}
+
+#octave-display {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  min-width: 40px;
+  text-align: center;
+  padding: 8px 12px;
+  background: #e0e0e0;
+  border-radius: 12px;
+  box-shadow: inset 3px 3px 6px #bebebe, inset -3px -3px 6px #ffffff;
+}
