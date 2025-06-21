@@ -1,3 +1,4 @@
+import HomeButton from '../../components/homebutton';
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import './piano.css';
 
@@ -20,7 +21,7 @@ const keyMap = {
   h: 'A4',
 };
 
-function Piano() {
+function Piano( {onBackToMenu}) {
   const [activeKeys, setActiveKeys] = useState({});
   const [currentOctave, setCurrentOctave] = useState(4);
   const audioContextRef = useRef(null);
@@ -148,29 +149,32 @@ const stopNote = useCallback((note) => {
   };
 
   return (
-    <>
-      <div className="octave-controls">
-        <button className="octave-button" onClick={() => changeOctave('down')}>−</button>
-        <div id="octave-display">{getOctaveLabel()}</div>
-        <button className="octave-button" onClick={() => changeOctave('up')}>+</button>
-      </div>
+  <>
+    <HomeButton onHome={onBackToMenu} />
+    <div className="octave-controls">
+      <button className="octave-button" onClick={() => changeOctave('down')}>−</button>
+      <div id="octave-display">{getOctaveLabel()}</div>
+      <button className="octave-button" onClick={() => changeOctave('up')}>+</button>
+    </div>
 
-      <div className="piano-container">
-        {Object.keys(baseFrequencies).map((note) => (
-          <div
-            key={note}
-            className={`white-key ${activeKeys[note] ? 'active' : ''}`}
-            onMouseDown={() => handleMouseDown(note)}
-            onMouseUp={() => handleMouseUp(note)}
-            onTouchStart={() => handleMouseDown(note)}
-            onTouchEnd={() => handleMouseUp(note)}
-          >
-            {note[0]}
-          </div>
-        ))}
-      </div>
-    </>
-  );
+
+    <div className="piano-container">
+      {Object.keys(baseFrequencies).map((note) => (
+        <div
+          key={note}
+          className={`white-key ${activeKeys[note] ? 'active' : ''}`}
+          onMouseDown={() => handleMouseDown(note)}
+          onMouseUp={() => handleMouseUp(note)}
+          onTouchStart={() => handleMouseDown(note)}
+          onTouchEnd={() => handleMouseUp(note)}
+        >
+          {note[0]}
+        </div>
+      ))}
+    </div>
+  </>
+);
+
 }
 
 export default Piano;

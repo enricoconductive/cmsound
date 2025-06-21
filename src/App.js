@@ -15,7 +15,9 @@ function App() {
     );
   }
 
-  return instrument === 'piano' ? <Piano /> : <Makeymakey />;
+  return instrument === 'piano'
+  ? <Piano onBackToMenu={() => setInstrument(null)} />
+  : <Makeymakey onBackToMenu={() => setInstrument(null)} />;
 }
 
 export default App;
