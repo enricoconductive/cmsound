@@ -69,3 +69,84 @@
 .arrow.up { background-color: #fff9c4; }     /* pale yellow */
 .arrow.right { background-color: #d0f0c0; }  /* mint green */
 .arrow.down { background-color: #fdfdfd; }   /* soft white */
+
+.level-selector {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  background: #e0e0e0;
+  box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+  z-index: 10;
+}
+
+.level-button {
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  border: none;
+  border-radius: 50%;
+  background: #e0e0e0;
+  box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.level-button:hover {
+  color: #333;
+  box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+}
+
+.level-button:active,
+.level-button.active {
+  box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff;
+  transform: translateY(2px);
+  color: #222;
+}
+
+/* Clip layout container */
+.clip-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 40px;
+}
+
+/* Base clip styling */
+.clip {
+  width: 100px;
+  height: 160px;
+  background: #e0e0e0;
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Active clip animation: open + vibrate effect */
+.clip.active {
+  transform: rotate(-3deg) scale(1.05) translateY(-4px);
+  box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff;
+}
+
+/* Clip colors */
+.left-clip { background-color: #f8d7da; }   /* pastel red */
+.up-clip { background-color: #fff9c4; }     /* pale yellow */
+.right-clip { background-color: #d0f0c0; }  /* mint green */
+.down-clip { background-color: #fdfdfd; }   /* soft white */
