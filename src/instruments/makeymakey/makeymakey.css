@@ -1,3 +1,5 @@
+/* MakeyMakey Visual + Audio Levels CSS */
+
 .makey-container {
   display: flex;
   justify-content: center;
@@ -15,6 +17,7 @@
   height: 320px;
 }
 
+/* Active arrow-style layout (used in Makeymakey.js) */
 .arrow {
   width: 100px;
   height: 100px;
@@ -64,11 +67,11 @@
   transform: translateY(2px);
 }
 
-/* Pastel colors */
-.arrow.left { background-color: #f8d7da; }   /* pastel red */
-.arrow.up { background-color: #fff9c4; }     /* pale yellow */
-.arrow.right { background-color: #d0f0c0; }  /* mint green */
-.arrow.down { background-color: #fdfdfd; }   /* soft white */
+/* Pastel clip colours for MakeyLevel2.js */
+.clip.left-clip { background-color: #f8d7da; }     /* Soft Red */
+.clip.up-clip { background-color: #fff9c4; }       /* Pale Yellow */
+.clip.right-clip { background-color: #d0f0c0; }    /* Mint Green */
+.clip.down-clip { background-color: #ffffff !important; }     /* Soft White */
 
 .level-selector {
   position: absolute;
@@ -121,7 +124,6 @@
   padding: 40px;
 }
 
-/* Base clip styling */
 .clip {
   width: 100px;
   height: 160px;
@@ -137,16 +139,80 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   user-select: none;
   cursor: pointer;
+  position: relative;
+  overflow: visible;
 }
 
-/* Active clip animation: open + vibrate effect */
 .clip.active {
   transform: rotate(-3deg) scale(1.05) translateY(-4px);
   box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff;
 }
 
-/* Clip colors */
-.left-clip { background-color: #f8d7da; }   /* pastel red */
-.up-clip { background-color: #fff9c4; }     /* pale yellow */
-.right-clip { background-color: #d0f0c0; }  /* mint green */
-.down-clip { background-color: #fdfdfd; }   /* soft white */
+/* Note cards animation */
+.note-cards {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+.note-card {
+  width: 60%;
+  height: 10px;
+  border-radius: 8px;
+  background: #e0e0e0;
+  box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+  opacity: 0.95;
+  animation: vibrate 0.3s ease-in-out infinite;
+}
+
+.left-clip .note-cards .note-card:nth-child(1) { background-color: #f8d7da; } /* red */
+.left-clip .note-cards .note-card:nth-child(2) { background-color: #fff9c4; } /* yellow */
+.left-clip .note-cards .note-card:nth-child(3) { background-color: #b2d8b2; } /* dark green */
+
+.up-clip .note-cards .note-card:nth-child(1) { background-color: #ffe0b2; } /* pastel orange */
+.up-clip .note-cards .note-card:nth-child(2) { background-color: #b2d8b2; } /* dark green */
+.up-clip .note-cards .note-card:nth-child(3) { background-color: #e1bee7; } /* violet */
+
+.right-clip .note-cards .note-card:nth-child(1) { background-color: #fff9c4; } /* yellow */
+.right-clip .note-cards .note-card:nth-child(2) { background-color: #b2d8b2; } /* dark green */
+.right-clip .note-cards .note-card:nth-child(3) { background-color: #f8bbd0; } /* pink */
+
+.down-clip .note-cards .note-card:nth-child(1) { background-color: #b2d8b2; } /* dark green */
+.down-clip .note-cards .note-card:nth-child(2) { background-color: #f8bbd0; } /* pink */
+.down-clip .note-cards .note-card:nth-child(3) { background-color: #ffe0b2; } /* orange */
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+}
+
+@keyframes vibrate {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-1px); }
+  50% { transform: translateX(1px); }
+  75% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+
+/* Pastel colours for MakeyLevel1 arrows and space button */
+.arrow.left    { background-color: #f8d7da; }  /* soft red */
+.arrow.up      { background-color: #fff9c4; }  /* pale yellow */
+.arrow.right   { background-color: #d0f0c0; }  /* mint green */
+.arrow.down    { background-color: #fdfdfd; }  /* soft white */
+.space-button  { background-color: #e1bee7; }  /* pastel purple */

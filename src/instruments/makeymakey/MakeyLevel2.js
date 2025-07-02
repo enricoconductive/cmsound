@@ -1,4 +1,4 @@
-// MakeyLevel2.js – plays chords on arrow keys with crocodile clip visuals
+// MakeyLevel2.js – plays chords on arrow keys with crocodile clip visuals and pastel colours
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import HomeButton from '../../components/homebutton';
 import './makeymakey.css';
@@ -142,33 +142,21 @@ function MakeyLevel2({ onBackToMenu }) {
       </div>
 
       <div className="clip-row">
-        <div className={`clip left-clip ${activeKey === 'ArrowLeft' ? 'active' : ''}`}
-             onMouseDown={() => handleMouseDown('ArrowLeft')}
-             onMouseUp={handleMouseUp}
-             onTouchStart={() => handleMouseDown('ArrowLeft')}
-             onTouchEnd={handleMouseUp}>
-          ←
+        <div className={`clip left-clip ${activeKey === 'ArrowLeft' ? 'active' : ''}`} onMouseDown={() => handleMouseDown('ArrowLeft')} onMouseUp={handleMouseUp} onTouchStart={() => handleMouseDown('ArrowLeft')} onTouchEnd={handleMouseUp}>
+          <span className="arrow-label">←</span>
+          {activeKey === 'ArrowLeft' && <div className="note-cards"><div className="note-card"></div><div className="note-card"></div><div className="note-card"></div></div>}
         </div>
-        <div className={`clip up-clip ${activeKey === 'ArrowUp' ? 'active' : ''}`}
-             onMouseDown={() => handleMouseDown('ArrowUp')}
-             onMouseUp={handleMouseUp}
-             onTouchStart={() => handleMouseDown('ArrowUp')}
-             onTouchEnd={handleMouseUp}>
-          ↑
+        <div className={`clip up-clip ${activeKey === 'ArrowUp' ? 'active' : ''}`} onMouseDown={() => handleMouseDown('ArrowUp')} onMouseUp={handleMouseUp} onTouchStart={() => handleMouseDown('ArrowUp')} onTouchEnd={handleMouseUp}>
+          <span className="arrow-label">↑</span>
+          {activeKey === 'ArrowUp' && <div className="note-cards"><div className="note-card"></div><div className="note-card"></div><div className="note-card"></div></div>}
         </div>
-        <div className={`clip right-clip ${activeKey === 'ArrowRight' ? 'active' : ''}`}
-             onMouseDown={() => handleMouseDown('ArrowRight')}
-             onMouseUp={handleMouseUp}
-             onTouchStart={() => handleMouseDown('ArrowRight')}
-             onTouchEnd={handleMouseUp}>
-          →
+        <div className={`clip right-clip ${activeKey === 'ArrowRight' ? 'active' : ''}`} onMouseDown={() => handleMouseDown('ArrowRight')} onMouseUp={handleMouseUp} onTouchStart={() => handleMouseDown('ArrowRight')} onTouchEnd={handleMouseUp}>
+          <span className="arrow-label">→</span>
+          {activeKey === 'ArrowRight' && <div className="note-cards"><div className="note-card"></div><div className="note-card"></div><div className="note-card"></div></div>}
         </div>
-        <div className={`clip down-clip ${activeKey === 'ArrowDown' ? 'active' : ''}`}
-             onMouseDown={() => handleMouseDown('ArrowDown')}
-             onMouseUp={handleMouseUp}
-             onTouchStart={() => handleMouseDown('ArrowDown')}
-             onTouchEnd={handleMouseUp}>
-          ↓
+        <div className={`clip down-clip ${activeKey === 'ArrowDown' ? 'active' : ''}`} onMouseDown={() => handleMouseDown('ArrowDown')} onMouseUp={handleMouseUp} onTouchStart={() => handleMouseDown('ArrowDown')} onTouchEnd={handleMouseUp}>
+          <span className="arrow-label">↓</span>
+          {activeKey === 'ArrowDown' && <div className="note-cards"><div className="note-card"></div><div className="note-card"></div><div className="note-card"></div></div>}
         </div>
       </div>
     </>
